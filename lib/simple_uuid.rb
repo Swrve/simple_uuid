@@ -116,6 +116,10 @@ module SimpleUUID
     def to_s
       @bytes
     end
+
+    def to_str
+      to_s
+    end
     alias bytes to_s
 
     def hash

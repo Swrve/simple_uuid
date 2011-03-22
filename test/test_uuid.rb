@@ -39,4 +39,9 @@ class UUIDTest < Test::Unit::TestCase
     b = a.dup
     assert_equal a, b
   end
+
+  def test_implicit_string_conversion
+	a = UUID.new
+	assert !(String.try_convert(a) == nil), "Uses of this library require implicit string conversion as it worked in ruby 1.8?"
+  end
 end
