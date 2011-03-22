@@ -118,7 +118,7 @@ module SimpleUUID
     end
 
     def to_str
-      to_s
+      to_guid
     end
     alias bytes to_s
 
