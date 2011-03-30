@@ -44,4 +44,19 @@ class UUIDTest < Test::Unit::TestCase
 	a = UUID.new
 	assert !(String.try_convert(a) == nil), "Uses of this library require implicit string conversion as it worked in ruby 1.8?"
   end
+  def test_size
+        a = SimpleUUID::UUID.new(Time.at(2**(24+1)))
+        assert_equal a.to_s.length, 16
+  end
+
+  def test_less_than
+    a = UUID.new(Time.utc(2001, 1, 1, 6)) # Newer in time
+    b = UUID.new(Time.utc(2001, 1, 1, 5)) # Older in time
+    assert_equal true, a > b
+    assert_equal false, b > a
+
+
+    assert_equal false, a < b
+    assert_equal true, b < a
+  end
 end

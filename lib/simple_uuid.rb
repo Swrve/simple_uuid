@@ -95,6 +95,14 @@ module SimpleUUID
       total_usecs % 1_000_000
     end
 
+    def <(other)
+      total_usecs < other.send(:total_usecs)
+    end
+
+    def >(other)
+      total_usecs > other.send(:total_usecs)
+    end
+    
     def <=>(other)
       total_usecs <=> other.send(:total_usecs)
     end
