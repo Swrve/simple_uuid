@@ -59,4 +59,11 @@ class UUIDTest < Test::Unit::TestCase
     assert_equal false, a < b
     assert_equal true, b < a
   end
+
+  def test_less_than_or_eq
+    a = UUID.new(Time.utc(2001, 1, 1, 6)) # Newer in time
+    b = UUID.new(Time.utc(2001, 1, 1, 5)) # Older in time
+    assert_equal true, b <= a
+    assert_equal true, a <= a
+  end
 end

@@ -111,6 +111,10 @@ module SimpleUUID
       to_s == other.to_s
     end
 
+    def <=(other)
+      total_usecs <= other.send(:total_usecs)
+    end
+
     def inspect(long = false)
       "<UUID##{object_id} time: #{
         Time.at(seconds).inspect
